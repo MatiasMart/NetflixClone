@@ -25,13 +25,30 @@ class HomeViewController: UIViewController {
         view.addSubview(homeFeedTable)
         
         //Set delegate an datasource of the table view
-        
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
+        
+        configureNavBar()
         
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         
         homeFeedTable.tableHeaderView = headerView
+    }
+    
+    private func configureNavBar() {
+        
+        var image = UIImage(named: "netflixLogo")?
+            .withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+            .resizeTo(size: CGSize(width: 20, height: 35))
+        image = image?.withRenderingMode(.alwaysOriginal)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
+            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
+        ]
+        
+        navigationController?.navigationBar.tintColor = .label
     }
     
     //Give a frame so we can viewit on the screen
@@ -75,3 +92,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     }
+
+extension UIImage {
+    func resizeTo(size: CGSize) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let image = renderer.image { _ in
+            self.draw(in: CGRect.init(origin: CGPoint.zero, size: size))
+        }
+        
+        return image.withRenderingMode(self.renderingMode)
+    }
+}

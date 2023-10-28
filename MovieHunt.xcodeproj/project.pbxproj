@@ -16,6 +16,8 @@
 		628247022AED4C9400F9BA92 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628247012AED4C9400F9BA92 /* UpcomingViewController.swift */; };
 		628247042AED4CBC00F9BA92 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628247032AED4CBC00F9BA92 /* SearchViewController.swift */; };
 		628247062AED4CDB00F9BA92 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628247052AED4CDB00F9BA92 /* DownloadsViewController.swift */; };
+		6282470E2AED5BBA00F9BA92 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6282470D2AED5BBA00F9BA92 /* CollectionViewTableViewCell.swift */; };
+		628247102AED6CD100F9BA92 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6282470F2AED6CD100F9BA92 /* HeroHeaderUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		628247012AED4C9400F9BA92 /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		628247032AED4CBC00F9BA92 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		628247052AED4CDB00F9BA92 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
+		6282470D2AED5BBA00F9BA92 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		6282470F2AED6CD100F9BA92 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,11 @@
 		628246E92AED43AA00F9BA92 /* MovieHunt */ = {
 			isa = PBXGroup;
 			children = (
+				6282470C2AED5B7E00F9BA92 /* Managers */,
+				6282470B2AED5B7600F9BA92 /* Resources */,
+				6282470A2AED5B3D00F9BA92 /* Models */,
+				628247072AED594E00F9BA92 /* View */,
+				628247092AED5B3700F9BA92 /* ViewModel */,
 				628246FE2AED4BF900F9BA92 /* Controllers */,
 				628246EA2AED43AA00F9BA92 /* AppDelegate.swift */,
 				628246EC2AED43AA00F9BA92 /* SceneDelegate.swift */,
@@ -82,6 +91,43 @@
 				628247052AED4CDB00F9BA92 /* DownloadsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		628247072AED594E00F9BA92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6282470D2AED5BBA00F9BA92 /* CollectionViewTableViewCell.swift */,
+				6282470F2AED6CD100F9BA92 /* HeroHeaderUIView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		628247092AED5B3700F9BA92 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6282470A2AED5B3D00F9BA92 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6282470B2AED5B7600F9BA92 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6282470C2AED5B7E00F9BA92 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +202,8 @@
 			files = (
 				628247042AED4CBC00F9BA92 /* SearchViewController.swift in Sources */,
 				628246EF2AED43AA00F9BA92 /* MainTabBarViewController.swift in Sources */,
+				6282470E2AED5BBA00F9BA92 /* CollectionViewTableViewCell.swift in Sources */,
+				628247102AED6CD100F9BA92 /* HeroHeaderUIView.swift in Sources */,
 				628247062AED4CDB00F9BA92 /* DownloadsViewController.swift in Sources */,
 				628246EB2AED43AA00F9BA92 /* AppDelegate.swift in Sources */,
 				628246ED2AED43AA00F9BA92 /* SceneDelegate.swift in Sources */,

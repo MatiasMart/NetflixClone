@@ -89,6 +89,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 40
     }
     
+    //function to make the top navBar dissapear when scrolling up
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let defaultOffset = view.safeAreaInsets.top
+        let offset = scrollView.contentOffset.y + defaultOffset
+        
+        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
+    }
     
     
     }
@@ -103,3 +110,4 @@ extension UIImage {
         return image.withRenderingMode(self.renderingMode)
     }
 }
+

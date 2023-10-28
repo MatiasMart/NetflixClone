@@ -9,19 +9,84 @@ import UIKit
 
 class HeroHeaderUIView: UIView {
     
+    private let downloadButton: UIButton = {
+        
+        let button = UIButton()
+        button.setTitle("Download", for: .normal)
+        button.setTitleColor(UIColor.label, for: .normal)
+        button.layer.borderColor = UIColor.label.cgColor
+        button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    private let playButton: UIButton = {
+        
+        let button = UIButton()
+        button.setTitle("Play", for: .normal)
+        button.setTitleColor(UIColor.label, for: .normal)
+        button.layer.borderColor = UIColor.label.cgColor
+        button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    
     //Implement an ImageView that will contain the image
     private let heroImage: UIView = {
         
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "heroImage")
         return imageView
     }()
+    
+    //Function that give the banishing effect to the hero
+    private func addGradient() {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor.clear.cgColor,
+            UIColor.systemBackground.cgColor
+        ]
+        gradientLayer.locations = [0.5, 1]
+        gradientLayer.frame = bounds
+        layer.addSublayer(gradientLayer)
+    }
     
     //Give a frame and asing 3 things
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(heroImage)
+        addGradient()
+        
+        addSubview(playButton)
+        addSubview(downloadButton)
+        applyConstranints()
+        
+    }
+    
+    private func applyConstranints() {
+        
+        //Set the contraints
+        let playButtonConstraints = [
+            playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 90),
+            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
+            playButton.widthAnchor.constraint(equalToConstant: 100)
+        ]
+        
+        let downloadButtonConstraints = [
+            downloadButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 230),
+            downloadButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
+            downloadButton.widthAnchor.constraint(equalToConstant: 100)
+        ]
+        
+        //Activate the constraints
+        NSLayoutConstraint.activate(playButtonConstraints)
+        NSLayoutConstraint.activate(downloadButtonConstraints)
     }
     
     override func layoutSubviews() {

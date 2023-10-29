@@ -9,6 +9,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    
+    let sectionTitles: [String] = [
+        "Trending Movies",
+        "Popular",
+        "Trending Tv",
+        "Upcoming Movies",
+        "Top Rated"
+    ]
+    
+    
     //Create the table view
     private let homeFeedTable: UITableView = {
         //Initialize the table view and give a Header
@@ -63,7 +73,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 20
+        return sectionTitles.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -87,6 +97,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     //Set the height of the section
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 40
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else {return}
+        
+        header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20,
+                                         y: header.bounds.origin.y,
+                                         width: 100,
+                                         height: header.bounds.height)
+        header.textLabel?.textColor = .label
+        header.textLabel?.text = header.textLabel?.text?.capitalized
     }
     
     //function to make the top navBar dissapear when scrolling up

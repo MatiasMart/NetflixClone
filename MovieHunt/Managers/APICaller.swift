@@ -20,7 +20,21 @@ class APICaller {
         
         guard let url = URL(string: "\(Constants.baseURl)/3/trending/movie/day?api_key=\(Constants.APIKey)") else {return}
         
-        let task = URLsession.shared.dataTask(with: URLRequest(url: url))
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            
+            do {
+                let results =  try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                print(results)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        task.resume()
     }
 }
 

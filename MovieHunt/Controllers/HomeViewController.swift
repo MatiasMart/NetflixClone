@@ -12,8 +12,8 @@ class HomeViewController: UIViewController {
     
     let sectionTitles: [String] = [
         "Trending Movies",
-        "Popular",
         "Trending Tv",
+        "Popular",
         "Upcoming Movies",
         "Top Rated"
     ]
@@ -44,7 +44,8 @@ class HomeViewController: UIViewController {
         
         homeFeedTable.tableHeaderView = headerView
         
-        getTrendigMovies()
+        //Call the APICallet functions to gegt the data
+        fetData()
     }
     
     private func configureNavBar() {
@@ -69,18 +70,23 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds
     }
     
-    private func getTrendigMovies() {
-        APICaller.shared.getTrendingMovies { results in
-            switch results {
-                
-            case .success(let movies):
-                print(movies)
-                
-            case .failure(let error):
-                print(error)
-            }
+    private func fetData() {
+//        APICaller.shared.getTrendingMovies { results in
+//            switch results {
+//                
+//            case .success(let movies):
+//                print(movies)
+//                
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+        
+        APICaller.shared.getTrendingTvs { results in
+            //
         }
     }
+    
     
 }
 
@@ -118,6 +124,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return sectionTitles[section]
     }
     
+    //Present each section title
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
         
@@ -127,7 +134,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                                          width: 100,
                                          height: header.bounds.height)
         header.textLabel?.textColor = .label
-        header.textLabel?.text = header.textLabel?.text?.capitalized
+        header.textLabel?.text = header.textLabel?.text?.capitalizingFirstLetters()
     }
     
     //function to make the top navBar dissapear when scrolling up

@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct TrendingMovieResponde: Codable {
+struct TrendingMovieResponse: Codable {
     let results: [Movie]
     
 }
@@ -16,7 +16,7 @@ struct TrendingMovieResponde: Codable {
 struct Movie: Codable {
     let id: Int
     let media_type: String?
-    let original_mname: String?
+    let original_name: String?
     let original_title: String?
     let poster_path: String?
     let overtime: String?

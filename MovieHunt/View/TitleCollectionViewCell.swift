@@ -32,17 +32,19 @@ class TitleCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        posterImageView.frame = contentView.bou nds
+        posterImageView.frame = contentView.bounds
     }
+    
     
     //Each time we deque a cell we need to have an update function
     //so we can update the poster for each cell
     
     public func configure(with model: String) {
-        guard let url = URL(string: model) {return}
-        posterImageView.sd_setImage(with: url , completed: nil)
-    }
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(model)/images") else {return}
+        
+        
     
 }
     
+}
 

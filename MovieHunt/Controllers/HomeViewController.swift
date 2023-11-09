@@ -44,8 +44,7 @@ class HomeViewController: UIViewController {
         
         homeFeedTable.tableHeaderView = headerView
         
-        //Call the APICallet functions to gegt the data
-        fetData()
+ 
     }
     
     private func configureNavBar() {
@@ -64,41 +63,13 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .label
     }
     
-    //Give a frame so we can viewit on the screen
+    //Give a frame so we can view it on the screen
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
     }
     
-    private func fetData() {
-        
-//        APICaller.shared.getTrendingMovies { results in
-//            switch results {
-//                
-//            case .success(let movies):
-//                print(movies)
-//                
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-        
-//        APICaller.shared.getTrendingTvs { results in
-//            //
-//        }
-        
-//        APICaller.shared.getUpcomingMovies { _ in
-//            //
-//        }
-        
-//        APICaller.shared.getPopular { _ in
-//            //
-//        }
-        
-        APICaller.shared.getTopRated { _ in
-            //
-        }
-    }
+
     
     
 }

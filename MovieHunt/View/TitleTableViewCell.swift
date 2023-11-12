@@ -49,8 +49,8 @@ class TitleTableViewCell: UITableViewCell {
         // Set the constraints to the title poster
         let titlePosterUIImageViewConstraints = [
             titlePosterUIImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            titlePosterUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-            titlePosterUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            titlePosterUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            titlePosterUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             titlePosterUIImageView.widthAnchor.constraint(equalToConstant: 100)
         ]
         
@@ -73,7 +73,7 @@ class TitleTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate(playButtonConstraints)
     }
     
-    // Activate the model
+
     public func configure(with model: TitleViewModel) {
         
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterURL)") else {return} // Set the url

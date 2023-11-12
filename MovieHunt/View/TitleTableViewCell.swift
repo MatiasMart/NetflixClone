@@ -26,6 +26,7 @@ class TitleTableViewCell: UITableViewCell {
     private let titlePosterUIImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -41,9 +42,9 @@ class TitleTableViewCell: UITableViewCell {
     private func applyConstraints() {
         let titlePosterUIImageViewConstraints = [
             titlePosterUIImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-//            titlePosterUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-//            titlePosterUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-//            titlePosterUIImageView.widthAnchor.constraint(equalToConstant: 100)
+            titlePosterUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            titlePosterUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            titlePosterUIImageView.widthAnchor.constraint(equalToConstant: 100)
         ]
         
         let titleLabelConstraints = [
@@ -58,7 +59,7 @@ class TitleTableViewCell: UITableViewCell {
     public func configure(with model: TitleViewModel) {
         
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterURL)") else {return}
-
+       
         titlePosterUIImageView.sd_setImage(with: url, completed: nil)
         titleLabel.text = model.titleName
         

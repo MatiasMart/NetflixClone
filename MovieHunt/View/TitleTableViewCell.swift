@@ -14,8 +14,8 @@ class TitleTableViewCell: UITableViewCell {
     private let playTitleButton: UIButton = {
         let button = UIButton() //create the button
         let image = UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize:    30)) // create the image of the button with a specific size
-        button.setImage(image, for: .normal) // asignme the play image to the button
-        button.tintColor = .label // set the buttton color
+        button.setImage(image, for: .normal) // assign the play image to the button
+        button.tintColor = .label // set the button color
         button.translatesAutoresizingMaskIntoConstraints = false // prepare for the constraints
         return button
     }()

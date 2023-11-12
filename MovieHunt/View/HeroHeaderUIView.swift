@@ -69,11 +69,11 @@ class HeroHeaderUIView: UIView {
         
         addSubview(playButton)
         addSubview(downloadButton)
-        applyConstranints()
+        applyConstraints()
         
     }
     
-    private func applyConstranints() {
+    private func applyConstraints() {
         
         //Set the contraints
         let playButtonConstraints = [

@@ -41,6 +41,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         collectionView.frame = contentView.bounds
     }
     
+    
     public func  configure(with titles: [Title]) {
         self.titles = titles
         DispatchQueue.main.sync { [weak self] in

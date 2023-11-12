@@ -15,7 +15,7 @@ class TitleCollectionViewCell: UICollectionViewCell {
     // Create an imageView for the posters
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
         
     }()
@@ -40,11 +40,10 @@ class TitleCollectionViewCell: UICollectionViewCell {
     //so we can update the poster for each cell
     
     public func configure(with model: String) {
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(model)/images") else {return}
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else {return}
         
-        
-    
-}
+        posterImageView.sd_setImage(with: url, completed: nil)
+    }
     
 }
 

@@ -95,6 +95,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue:
             

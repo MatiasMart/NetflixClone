@@ -39,6 +39,14 @@ class TitleReviewViewController: UIViewController {
         return button
     }()
     
+//    private let rating: UILabel = {
+//        let label = UILabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.font = .systemFont(ofSize: 18, weight: .regular)
+//        label.text = "86"
+//        return label
+//    }()
+    
     private let webView: WKWebView = {
         let webView = WKWebView()
         webView.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +62,7 @@ class TitleReviewViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(overViewLabel)
         view.addSubview(downloadButton)
+//        view.addSubview(rating)
         
         configureConstraints()
     }
@@ -65,8 +74,6 @@ class TitleReviewViewController: UIViewController {
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.heightAnchor.constraint(equalToConstant: 300)
         ]
-        
-        
         
         let titleLabelConstraints = [
             titleLabel.topAnchor.constraint(equalTo: webView.bottomAnchor, constant: 20),
@@ -86,10 +93,16 @@ class TitleReviewViewController: UIViewController {
             downloadButton.heightAnchor.constraint(equalToConstant: 40)
         ]
         
+//        let ratingConstraints = [
+//            rating.topAnchor.constraint(equalTo: webView.bottomAnchor, constant: 23),
+//            rating.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+//        ]
+        
         NSLayoutConstraint.activate(webViewConstraints)
         NSLayoutConstraint.activate(titleLabelConstraints)
         NSLayoutConstraint.activate(overviewLabelConstraints)
         NSLayoutConstraint.activate(downloadButtonConstraints)
+//        NSLayoutConstraint.activate(ratingConstraints)
     }
     
     func configure(with model: TitlePreviewViewModel) {

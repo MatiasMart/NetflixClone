@@ -46,13 +46,12 @@ class HomeViewController: UIViewController {
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         
+        
         configureNavBar()
         
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
         
-        
-        navigationController?.pushViewController(TitleReviewViewController(), animated: true)
     }
     
     private func configureNavBar() {
@@ -96,6 +95,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.delegate = self
         
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue:
@@ -201,6 +201,16 @@ extension UIImage {
         }
         
         return image.withRenderingMode(self.renderingMode)
+    }
+}
+
+extension HomeViewController: CollectionViewTableViewCellDelegate {
+    func CollectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = TitleReviewViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

@@ -38,8 +38,7 @@ class HeroHeaderUIView: UIView {
     
     
     //Implement an ImageView that will contain the image
-    private let heroImage: UIView = {
-        
+    private let heroImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -61,7 +60,7 @@ class HeroHeaderUIView: UIView {
         
     }
     
-    //Give a frame and asing 3 things
+    //Give a frame
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(heroImage)
@@ -91,6 +90,13 @@ class HeroHeaderUIView: UIView {
         //Activate the constraints
         NSLayoutConstraint.activate(playButtonConstraints)
         NSLayoutConstraint.activate(downloadButtonConstraints)
+    }
+    
+    public func configure(with model: TitleViewModel) {
+        
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterURL)") else {return} // Set the url
+
+        heroImage.sd_setImage(with: url, completed: nil)
     }
     
     override func layoutSubviews() {

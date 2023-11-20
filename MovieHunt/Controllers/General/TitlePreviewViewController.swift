@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class TitleReviewViewController: UIViewController {
+class TitlePreviewViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         

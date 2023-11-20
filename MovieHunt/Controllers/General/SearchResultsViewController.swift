@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol SearchResultsViewControllerDelegate: AnyObject {
+    func searchResultsViewController(_ viewModel: TitlePreviewViewModel)
+}
+
 //This is the controller responsible for viewing the data that we are going to retrive from de DB 
 
 class SearchResultsViewController: UIViewController {
     
     public var titles: [Title] = [Title]()
+    
+    public weak var delegate: SearchResultsViewControllerDelegate?
     
     public let searchResultCollectionView: UICollectionView = {
         
@@ -56,6 +62,24 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         cell.configure(with: titles.poster_path ?? "")
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let titles = titles[indexPath.row]
+        
+        let titleName = titles.original_title ?? ""
+
+        APICaller.shared.getMovie(with: titleName) { [weak self] result in
+            switch result {
+            case .success(let videoElement):
+                self?.delegate?.searchResultsViewController(TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverView: titles.overview ?? ""))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
     }
     
     

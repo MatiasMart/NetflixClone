@@ -227,7 +227,7 @@ extension UIImage {
 extension HomeViewController: CollectionViewTableViewCellDelegate {
     func CollectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
         DispatchQueue.main.async { [weak self] in
-            let vc = TitleReviewViewController()
+            let vc = TitlePreviewViewController()
             vc.configure(with: viewModel)
             self?.navigationController?.pushViewController(vc, animated: true)
         }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DownloadsViewController: UIViewController {
+class DetectiveViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

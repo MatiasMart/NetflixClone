@@ -11,7 +11,7 @@ protocol CollectionViewTableViewCellDelegate: AnyObject {
     func CollectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel)
 }
 
-//Create a persolanized cell
+//Create a personalised cell
 class CollectionViewTableViewCell: UITableViewCell {
     
     weak var delegate: CollectionViewTableViewCellDelegate?
@@ -44,6 +44,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        //Give a frame that cover the hole screen
         collectionView.frame = contentView.bounds
     }
     

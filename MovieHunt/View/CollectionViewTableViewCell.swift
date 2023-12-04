@@ -47,6 +47,8 @@ class CollectionViewTableViewCell: UITableViewCell {
         super.layoutSubviews()
         //Give a frame that cover the hole screen
         collectionView.frame = contentView.bounds
+        
+        applyConstraints()
     }
     
     
@@ -55,7 +57,20 @@ class CollectionViewTableViewCell: UITableViewCell {
         DispatchQueue.main.sync { 
             self.collectionView.reloadData()
         }
-    } 
+    }
+    
+    
+    private func applyConstraints() {
+        let collectionViewConstraints = [
+            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(collectionViewConstraints)
+    }
+    
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {

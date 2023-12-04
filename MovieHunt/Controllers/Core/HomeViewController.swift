@@ -101,10 +101,12 @@ class HomeViewController: UIViewController {
 //Conform the TableView Protocol
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
+    //Number of categories
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
     }
     
+    //Rows in each category
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }

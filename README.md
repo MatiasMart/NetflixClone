@@ -1,5 +1,5 @@
 
-<img src="https://github.com/MatiasMart/NetflixClone/assets/54157579/19089cc1-5293-475c-8e25-dfee57e3a430" width="100">
+<img src="https://github.com/MatiasMart/NetflixClone/assets/54157579/19089cc1-5293-475c-8e25-dfee57e3a430" width="200">
 
 # NetflixClone
 

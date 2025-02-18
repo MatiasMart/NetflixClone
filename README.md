@@ -3,7 +3,7 @@
 
 # NetflixClone
 
-## Welcome to the Netflix Clone project! This is a simple iOS app created using UIKit to replicate the basic user interface of the Netflix app. This project is meant for educational purposes and serves as a hands-on exercise in iOS development..
+## Welcome to the Netflix Clone project! This is a simple iOS app created using UIKit to replicate the basic user interface of the Netflix app.
 
 ![Netflix Clone](https://github.com/MatiasMart/NetflixClone/assets/54157579/7fbc7f06-c703-4f4d-8399-678a9fc689ad)
 
